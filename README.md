@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔗 TinyLink — URL Shortener
 
-## Getting Started
+TinyLink is a minimal, production-ready URL shortener built using **Next.js 16**, **Prisma**, and **Neon Postgres**, deployed on **Vercel**.
 
-First, run the development server:
+Users can:
+- Create short links
+- Optionally use a custom shortcode
+- View click statistics
+- Track last visited timestamps
+- Delete links
+- View per-link details
+- Redirect via `/[code]`
+- Use public API endpoints for CRUD operations
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project was built as part of a **take-home assignment** and follows all requirements including stable routes, API behavior, validation, and deployment.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+##  Live Demo
 
-## Learn More
+**Frontend Deployment:**  
+👉 https://tinyurl12-811a0pywf-prajwal-pawars-projects-6476d017.vercel.app/ 
 
-To learn more about Next.js, take a look at the following resources:
+**Health Check:**  
+👉 https://tinyurl12-811a0pywf-prajwal-pawars-projects-6476d017.vercel.app/healthz  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- **Next.js 16 (App Router)**
+- **React**
+- **TypeScript**
+- **TailwindCSS**
+- **Prisma ORM**
+- **Neon Serverless Postgres**
+- **Vercel Serverless Deployment**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📌 Features
+
+### Core Functionality
+- Shorten any long URL
+- Custom code support (`[A-Za-z0-9]{6,8}`)
+- Live-updating dashboard (auto-refresh every 3s)
+- Per-link stats page (`/code/[code]`)
+- Last clicked timestamp + click count
+- Soft-polished modern UI with TailwindCSS
+- Redirect tracking via server route (`/[code]`)
+- Fully deployed with public API access
