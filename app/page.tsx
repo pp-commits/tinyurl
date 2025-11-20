@@ -19,27 +19,26 @@ export default function DashboardPage() {
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const base = process.env.NEXT_PUBLIC_BASE_URL || window.location.origin;
+
+  // FIX: Safe base URL with no window access during SSR
+  const [base, setBase] = useState("");
+
+  useEffect(() => {
+    setBase(process.env.NEXT_PUBLIC_BASE_URL || window.location.origin);
+  }, []);
 
   async function fetchLinks() {
     const res = await fetch("/api/links");
     if (res.ok) {
-      const data = await res.json();
-      setLinks(data);
+      setLinks(await res.json());
     }
   }
 
-  // ⬇⬇⬇ THIS IS THE NEW UPDATED LOGIC
   useEffect(() => {
-    fetchLinks(); // initial load
-
-    const interval = setInterval(() => {
-      fetchLinks(); // auto-refresh every 3s
-    }, 3000);
-
+    fetchLinks();
+    const interval = setInterval(fetchLinks, 3000);
     return () => clearInterval(interval);
   }, []);
-  // ⬆⬆⬆ END OF UPDATED LOGIC
 
   async function createLink(e: React.FormEvent) {
     e.preventDefault();
