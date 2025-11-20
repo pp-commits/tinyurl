@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
         <main className="max-w-4xl mx-auto px-4 py-8">{children}</main>
         <footer className="max-w-4xl mx-auto px-4 py-6 text-sm text-gray-600">
-          <div>Made for TinyLink assignment — health: <code>/healthz</code></div>
+          
         </footer>
       </body>
     </html>
